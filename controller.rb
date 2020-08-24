@@ -61,6 +61,7 @@ class Controller
 
   private
 
+  # Obtem o título e a URL das 5 primeiras receitas
   def get_recipes_from_web(ingredient)
     url = "https://www.bbcgoodfood.com/search/recipes?q=#{ingredient}"
     html_file = open(url).read
@@ -75,6 +76,7 @@ class Controller
     recipes.first(5)
   end
 
+  # Obtem os dados de uma única receita da URL
   def get_recipe_detail(url)
     html_file = open(url).read
     html_doc = Nokogiri::HTML(html_file)
